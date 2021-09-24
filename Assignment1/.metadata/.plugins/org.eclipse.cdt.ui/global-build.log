@@ -1,0 +1,8 @@
+01:25:02 **** Build of configuration GNU ARM v7.2.1 - Debug for project o1 ****
+make -j16 all 
+Assembling o1.s
+arm-none-eabi-gcc -x assembler-with-cpp -mcpu=cortex-m3 -mthumb -I.. -I../common/CMSIS/Include -I../common/EFM32GG/Include -I../common/emlib/inc -I../common/EFM32/drivers -I../common/EFM32/bsp -I../common/EFM32GG_STK3700/config -c -o build/o1.o o1.s
+Linking target: exe/o1.out
+arm-none-eabi-gcc -Xlinker -Map=lst/o1.map -mcpu=cortex-m3 -mthumb -Tefm32gg.ld --specs=nano.specs -Wl,--gc-sections build/system_efm32gg.o build/vddcheck.o build/segmentlcd.o build/em_assert.o build/em_cmu.o build/em_emu.o build/em_gpio.o build/em_rtc.o build/em_system.o build/em_lcd.o build/em_vcmp.o build/em_usart.o build/bsp_stk.o build/bsp_stk_leds.o build/bsp_trace.o build/init.o   build/startup_efm32gg.o build/o1.o build/gpio_constants.o build/sys-tick_constants.o -Wl,--start-group -lgcc -lc -lnosys -Wl,--end-group -o exe/o1.out
+Creating binary file
+arm-none-eabi-objcopy -O binary exe/o1.out exe/o1.bin

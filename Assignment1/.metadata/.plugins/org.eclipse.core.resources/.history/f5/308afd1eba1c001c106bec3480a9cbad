@@ -1,0 +1,34 @@
+.thumb
+.syntax unified
+
+.include "gpio_constants.s"     // Register-adresser og konstanter for GPIO
+
+.text
+	.global Start
+	
+Start:
+
+	// LED TEST
+
+	LDR R0, =GPIO_BASE
+	LDR R1, =PORT_SIZE
+	LDR R2, =LED_PORT
+	LDR R3, =LED_PIN
+	MUL R1, R1, R2 //Gives offset to Port E, R1 is address for PORT E
+	ADD R0, R0, R1 //Adds R1 offset to R0
+	ADD R0, R0, R3 //Adds R3 offset to R0
+	MOV R4, #1
+	STR R4, [R0]
+
+
+	//LDR R1, =SYSTICK_BASE
+	//LDR R2, =SYSTICK_LOAD
+	//ADD R1, R1, R2 // R1 is LOAD address
+	//LDR R3, FREQUENCY
+	//STR R3, [R1] // Setting LOAD frequency to every second
+	//LDR R4, 0b111
+
+
+
+NOP // Behold denne på bunnen av fila
+

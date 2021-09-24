@@ -1,0 +1,60 @@
+.thumb
+.syntax unified
+
+.include "gpio_constants.s"     // Register-adresser og konstanter for GPIO
+.include "sys-tick_constants.s"
+.text
+	.global Start
+	
+Start:
+
+
+	// BUTTON TEST
+	Bstart:
+	LDR R6, =GPIO_BASE
+	LDR R7, =PORT_SIZE
+	LDR R8, =BUTTON_PORT
+	LDR R9, =BUTTON_PIN
+	LDR R10, =GPIO_PORT_DIN
+
+	MUL R7, R7, R8
+	ADD R6, R6, R7
+	ADD R6, R6, R10 //R6 is now Port B, DIN
+	// We want to read the BUTTON_PIN
+	MOV R11, #1
+	LSL R11, R11, R9 //Mask for checking BUTTON_PIN
+	LDR R12, [R6]
+	AND R12, R12, R11 //Changing R12 to an AND between earlier R11 and R12. If BUTTON_PIN was active, then R11 == current R12
+	CMP R11, R12
+	BEQ Bstart
+	// LED TEST
+	Lstart:
+	LDR R0, =GPIO_BASE
+	LDR R1, =PORT_SIZE
+	LDR R2, =LED_PORT
+	LDR R3, =LED_PIN
+	LDR R4, =GPIO_PORT_DOUT
+
+	MUL R1, R1, R2 //Gives offset to Port E, R1 is address for PORT E, aka PORTS
+	ADD R0, R0, R1 //Adds PORTS offset to GPIO_BASE, R0 is address for PORT
+	ADD R0, R0, R4 //R0 address is now Port E, DOUT
+	MOV R5, #1 //Left-shift target
+	LSL R5, R5, R3 //Should now be 0000 0100
+	LDR R13, [R0]
+	ORR R13, R13, R5
+	STR R13, [R0] //Now the LED is high
+
+	// RE-TEST BUTTON
+
+	LDR R12, [R6]
+	AND R12, R12, R11
+	CMP R11, R12
+	BNE Lstart
+
+
+
+	BEQ Bstart
+
+
+NOP // Behold denne på bunnen av fila
+

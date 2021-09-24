@@ -1,0 +1,6 @@
+01:18:28 **** Incremental Build of configuration GNU ARM v7.2.1 - Debug for project TDT4160OVING1 ****
+make -j16 all 
+make: *** No rule to make target `build/FERDIGOVINGER.o', needed by `exe/FERDIGOVINGER.out'.  Stop.
+
+01:18:29 Build Finished (took 433ms)
+

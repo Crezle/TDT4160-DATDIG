@@ -1,0 +1,18 @@
+.thumb
+.syntax unified
+
+.include "gpio_constants.s"     // Register-adresser og konstanter for GPIO
+
+.text
+	.global Start
+	
+Start:
+
+    // Skriv din kode her...
+    LDR R0, =GPIO_BASE
+	LDR R1, =SYSTICK_BASE
+	ADD R1, R1, =SYSTICK_LOAD
+
+
+NOP // Behold denne på bunnen av fila
+

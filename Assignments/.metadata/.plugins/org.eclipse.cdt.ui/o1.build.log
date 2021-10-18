@@ -1,0 +1,6 @@
+03:12:40 **** Incremental Build of configuration GNU ARM v7.2.1 - Debug for project o1 ****
+make -j16 all 
+make: Nothing to be done for `all'.
+
+03:12:40 Build Finished (took 314ms)
+

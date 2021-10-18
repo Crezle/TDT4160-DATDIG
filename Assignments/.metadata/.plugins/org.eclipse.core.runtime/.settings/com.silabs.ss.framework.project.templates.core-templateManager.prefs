@@ -1,8 +1,0 @@
-defaultSelection=\u0000
-disabledIDs=\u0000
-eclipse.preferences.version=1
-enabledIDs=projectTemplate.emptyProjectTemplate\u0000
-knownPackageIds=
-knownParentDescs_com.silabs.ss.platform.sdk.core-protocolRegistry=com.silabs.sdk.stack.super\:2.7.10._310455041.com.silabs.sdk.exx32\:5.9.10.0_-60569269\u0000com.silabs.sdk.stack.super\:2.7.10._310455041.com.silabs.sdk.micrium\:5.8.3._163169078\u0000com.silabs.sdk.stack.super\:2.7.10._310455041.com.silabs.sdk.stack.bootloader\:1.10.3._1748125906
-knownParentDescs_com.silabs.ss.platform.sdk.core-sdkManager=com.silabs.sdk.none\:0.0.0\u0000com.silabs.sdk.stack.super\:2.7.10._310455041\u0000com.silabs.stack.external.stackless\:1.0.0._1234321
-lastRefreshDate=1632428852969
